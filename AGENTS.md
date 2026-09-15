@@ -10,6 +10,8 @@ Refer to `README.md` for the canonical file structure. Update the README first w
 
 - Always install and use TypeScript locally through npm.
 - Do not use global TypeScript installs or global `tsc` assumptions.
+- Treat this template as native ESM. Keep `package.json` set to `"type": "module"` unless the user explicitly asks for CommonJS.
+- Use explicit `.js` extensions in relative TypeScript imports, for example `import { add } from "./math.js";`.
 - Use `make help` to inspect the available workflow commands.
 - `make install` initializes npm, installs local TypeScript, and writes the standard npm scripts with `npm pkg set`.
 - `make build` relies on `tsconfig.json`; keep its `include`, `rootDir`, and `outDir` settings aligned with the file structure in `README.md`.

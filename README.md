@@ -1,6 +1,6 @@
 # Velari TypeScript Template
 
-A minimal TypeScript repository template that installs and runs TypeScript locally. Do not install TypeScript globally for this project.
+A minimal TypeScript repository template that installs and runs TypeScript locally. It uses native ECMAScript modules through `"type": "module"` and TypeScript's `NodeNext` module settings. Do not install TypeScript globally for this project.
 
 ## Requirements
 
@@ -52,6 +52,12 @@ npm run build
 
 The build uses `tsconfig.json`, compiles TypeScript files under `examples/`, and writes JavaScript output to `dist/`. The compiler keeps `rootDir` as `.` so output paths mirror the repository structure.
 
+Use explicit `.js` extensions for relative TypeScript imports so the emitted JavaScript runs correctly in Node ESM:
+
+```ts
+import { add } from "./math.js";
+```
+
 Run the compiled sample:
 
 ```sh
@@ -94,7 +100,7 @@ make clean
 
 - `Makefile`: Project commands for setup, TypeScript usage, and cleanup.
 - `tsconfig.json`: TypeScript compiler configuration for local examples. It keeps `rootDir` as `.` and emits compiled files under `dist/`.
-- `package.json`: npm project metadata, local development dependencies, and npm scripts for build, typecheck, and watch.
+- `package.json`: npm project metadata, native ESM mode, local development dependencies, and npm scripts for build, typecheck, and watch.
 - `package-lock.json`: Locked npm dependency versions.
 - `examples/`: TypeScript example source files compiled by `make build`.
 - `README.md`: Project overview and usage instructions.
