@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "dev": "tsx",
     "typecheck": "tsc --noEmit",
     "watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +15,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
   "directories": {

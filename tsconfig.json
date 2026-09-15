@@ -5,11 +5,13 @@
     "moduleResolution": "NodeNext",
     "rootDir": ".",
     "outDir": "dist",
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true, 
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["examples/"],
+  "include": ["examples/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

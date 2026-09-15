@@ -1,6 +1,6 @@
-import { add, subtract } from "./math.js";
+import { add, subtract } from "./math.ts";
 
-const userName: string = "Ari";
+const userName: string = "John Doe";
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
