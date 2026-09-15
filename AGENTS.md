@@ -12,6 +12,9 @@ Refer to `README.md` for the canonical file structure. Update the README first w
 - Do not use global TypeScript installs or global `tsc` assumptions.
 - Use `make help` to inspect the available workflow commands.
 - `make install` initializes npm, installs local TypeScript, and writes the standard npm scripts with `npm pkg set`.
+- `make build` relies on `tsconfig.json`; keep its `include`, `rootDir`, and `outDir` settings aligned with the file structure in `README.md`.
+- Keep `rootDir` as `.` unless the user explicitly asks to change the emitted `dist/` layout.
+- Do not assume `npm start` exists. This template runs compiled samples directly with `node` unless a project-specific runtime entrypoint is added.
 - Prefer the Makefile targets for common workflows:
   - `make help`
   - `make install`

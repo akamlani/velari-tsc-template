@@ -50,6 +50,16 @@ Or use npm directly:
 npm run build
 ```
 
+The build uses `tsconfig.json`, compiles TypeScript files under `examples/`, and writes JavaScript output to `dist/`. The compiler keeps `rootDir` as `.` so output paths mirror the repository structure.
+
+Run the compiled sample:
+
+```sh
+node dist/examples/sample/index.js
+```
+
+This template does not define a `start` script by default. Run compiled samples directly with `node` after building, or add a project-specific npm script when the runtime entrypoint is known.
+
 Run a type check without writing output:
 
 ```sh
@@ -83,8 +93,10 @@ make clean
 ## File Structure
 
 - `Makefile`: Project commands for setup, TypeScript usage, and cleanup.
-- `package.json`: npm project metadata, local development dependencies, and npm scripts.
+- `tsconfig.json`: TypeScript compiler configuration for local examples. It keeps `rootDir` as `.` and emits compiled files under `dist/`.
+- `package.json`: npm project metadata, local development dependencies, and npm scripts for build, typecheck, and watch.
 - `package-lock.json`: Locked npm dependency versions.
+- `examples/`: TypeScript example source files compiled by `make build`.
 - `README.md`: Project overview and usage instructions.
 - `AGENTS.md`: Instructions for coding agents working in this repository.
 - `node_modules/`: Local npm dependencies created by `make install`; ignored by git.
