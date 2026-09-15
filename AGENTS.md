@@ -10,7 +10,10 @@ Refer to `README.md` for the canonical file structure. Update the README first w
 
 - Always install and use TypeScript locally through npm.
 - Do not use global TypeScript installs or global `tsc` assumptions.
+- Use `make help` to inspect the available workflow commands.
+- `make install` initializes npm, installs local TypeScript, and writes the standard npm scripts with `npm pkg set`.
 - Prefer the Makefile targets for common workflows:
+  - `make help`
   - `make install`
   - `make info`
   - `make build`

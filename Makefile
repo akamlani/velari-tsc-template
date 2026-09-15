@@ -1,12 +1,24 @@
-.PHONY: install info build typecheck watch clean
+.PHONY: help install info build typecheck watch clean
 
 NPM := npm
 NPX := npx --no-install
 TSC := $(NPX) tsc
 
+help:
+	@echo "Available targets:"
+	@echo "  make install    Initialize npm, install local TypeScript, and add npm scripts"
+	@echo "  make info       Show Node, npm, and local TypeScript versions"
+	@echo "  make build      Compile TypeScript using npm run build"
+	@echo "  make typecheck  Type-check TypeScript without emitting files"
+	@echo "  make watch      Run TypeScript in watch mode"
+	@echo "  make clean      Remove generated files and folders"
+
 install:
 	$(NPM) init -y
 	$(NPM) install --save-dev typescript
+	$(NPM) pkg set scripts.build="tsc"
+	$(NPM) pkg set scripts.typecheck="tsc --noEmit"
+	$(NPM) pkg set scripts.watch="tsc --watch"
 
 info:
 	node --version
@@ -14,13 +26,13 @@ info:
 	$(TSC) --version
 
 build:
-	$(TSC)
+	$(NPM) run build
 
 typecheck:
-	$(TSC) --noEmit
+	$(NPM) run typecheck
 
 watch:
-	$(TSC) --watch
+	$(NPM) run watch
 
 clean:
 	rm -rf dist

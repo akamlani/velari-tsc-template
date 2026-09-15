@@ -1,9 +1,12 @@
 {
   "name": "velari-tsc-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "A minimal TypeScript repository template that installs and runs TypeScript locally. Do not install TypeScript globally for this project.",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,5 +15,16 @@
   "type": "commonjs",
   "devDependencies": {
     "typescript": "^7.0.2"
-  }
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akamlani/velari-tsc-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akamlani/velari-tsc-template/issues"
+  },
+  "homepage": "https://github.com/akamlani/velari-tsc-template#readme"
 }
